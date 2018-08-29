@@ -1,0 +1,38 @@
+{{#if hasGenerated}}
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+
+    </div>
+    <div class="col">
+      {{currentTeam.0.name}}
+    </div>
+  </div>
+{{else}}
+<div class="jumbotron">
+      <div class="container">
+        <div class="text-center">
+          <h1 class="display-2">Welcome to Pokémon Team Generator</h1>
+          <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate a Team</button>
+        </div>
+      </div>
+    </div>
+<div class="container">
+  <div class="pb-2 mt-4 mb-2 border-bottom text-center">
+    <h1>About</h1>
+  </div>
+</div>
+{{/if}}
