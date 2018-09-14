@@ -5,3 +5,16 @@
 .center-text{
   text-align: center;
 }
+
+.spinner-display{
+  top: 20% !important;
+}
+
+.poke-profile{
+  background-color: gray;
+}
+
+.sprite-display{
+  background-color: white;
+  radius: 20px;
+}

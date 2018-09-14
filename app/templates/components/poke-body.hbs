@@ -1,25 +1,121 @@
+<script type="text/javascript">
+function copy(){
+  var val = $("#export").select();
+  document.execCommand("copy");
+  document.getSelection().removeAllRanges();
+}
+</script>
 {{#if hasGenerated}}
-  <div class="row">
-    <div class="col">
-
+  <div class="center">
+    <div class="row">
+      <div class="col">
+        <div class="container poke-profile">
+          <div class="row">
+            <div class="col">
+              <div class="sprite-display">
+                <img src={{currentTeam.0.sprite}}>
+              </div>
+            </div>
+            <div class="col">
+              <div class="information">
+                {{currentTeam.0.displayName}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container poke-profile">
+          <div class="row">
+            <div class="col">
+              <div class="sprite-display">
+                <img src={{currentTeam.1.sprite}}>
+              </div>
+            </div>
+            <div class="col">
+              <div class="information">
+                {{currentTeam.1.displayName}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container poke-profile">
+          <div class="row">
+            <div class="col">
+              <div class="sprite-display">
+                <img src={{currentTeam.2.sprite}}>
+              </div>
+            </div>
+            <div class="col">
+              <div class="information">
+                {{currentTeam.2.displayName}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-
+    <div class="row">
+      <div class="col">
+        <div class="container poke-profile">
+          <div class="row">
+            <div class="col">
+              <div class="sprite-display">
+                <img src={{currentTeam.3.sprite}}>
+              </div>
+            </div>
+            <div class="col">
+              <div class="information">
+                {{currentTeam.3.displayName}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container poke-profile">
+          <div class="row">
+            <div class="col">
+              <div class="sprite-display">
+                <img src={{currentTeam.4.sprite}}>
+              </div>
+            </div>
+            <div class="col">
+              <div class="information">
+                {{currentTeam.4.displayName}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container poke-profile">
+          <div class="row">
+            <div class="col">
+              <div class="sprite-display">
+                <img src={{currentTeam.5.sprite}}>
+              </div>
+            </div>
+            <div class="col">
+              <div class="information">
+                {{currentTeam.5.displayName}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-
+    <div class="container export center">
+      <h3>Showdown export</h3>
+      <div class="btn btn-outline-primary btn-lg center" onclick="copy()">Copy exportable</div>
+      <textarea id="export" rows="8" col="300">{{exportable}}</textarea>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-      {{currentTeam.0.name}}
-    </div>
+{{else if loading}}
+  <div class="container">
+    {{ember-spinner lines=12 radius=20 length=0 width=10 rotate=0 speed='3.4' color='orange'}}
   </div>
 {{else}}
 <div class="jumbotron">
