@@ -6,7 +6,8 @@ function copy(){
 }
 </script>
 {{#if hasGenerated}}
-  <div class="center">
+  <div class="center textcenter">
+    <h1>Your Randomly Generated Team is...</h1>
     <div class="row">
       <div class="col">
         <div class="container poke-profile">
@@ -18,7 +19,7 @@ function copy(){
             </div>
             <div class="col">
               <div class="information">
-                {{currentTeam.0.displayName}}
+                <h1><i>{{currentTeam.0.displayName}}</i></h1>
               </div>
             </div>
           </div>
@@ -34,7 +35,7 @@ function copy(){
             </div>
             <div class="col">
               <div class="information">
-                {{currentTeam.1.displayName}}
+                <h1><i>{{currentTeam.1.displayName}}</i></h1>
               </div>
             </div>
           </div>
@@ -50,7 +51,7 @@ function copy(){
             </div>
             <div class="col">
               <div class="information">
-                {{currentTeam.2.displayName}}
+                <h1><i>{{currentTeam.2.displayName}}</i></h1>
               </div>
             </div>
           </div>
@@ -68,7 +69,7 @@ function copy(){
             </div>
             <div class="col">
               <div class="information">
-                {{currentTeam.3.displayName}}
+                <h1><i>{{currentTeam.3.displayName}}</i></h1>
               </div>
             </div>
           </div>
@@ -84,7 +85,7 @@ function copy(){
             </div>
             <div class="col">
               <div class="information">
-                {{currentTeam.4.displayName}}
+                <h1><i>{{currentTeam.4.displayName}}</i></h1>
               </div>
             </div>
           </div>
@@ -100,22 +101,44 @@ function copy(){
             </div>
             <div class="col">
               <div class="information">
-                {{currentTeam.5.displayName}}
+                <h1><i>{{currentTeam.5.displayName}}</i></h1>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container export center">
-      <h3>Showdown export</h3>
-      <div class="btn btn-outline-primary btn-lg center" onclick="copy()">Copy exportable</div>
-      <textarea id="export" rows="8" col="300">{{exportable}}</textarea>
+    <div class="row">
+      <div class="col-md-4 center textcenter">
+        <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate Another Team</button>
+      </div>
+      <div class="col-md-8">
+        <div class="container export center">
+          <h3>Showdown export</h3>
+          <div class="btn btn-outline-primary btn-sm center exportButton" onclick="copy()">Copy exportable</div>
+          <textarea id="export" rows="8" col="300">{{exportable}}</textarea>
+        </div>
+      </div>
     </div>
   </div>
 {{else if loading}}
   <div class="container">
     {{ember-spinner lines=12 radius=20 length=0 width=10 rotate=0 speed='3.4' color='orange'}}
+  </div>
+{{else if error}}
+  <div class="container error">
+    <div class="center verticalcenter">
+      <div class="row">
+        <div class="col">
+          <img src="https://pbs.twimg.com/media/CTz0j7nW4AAEj7Z.jpg">
+        </div>
+        <div class="col">
+          <h1>Oops!</h1>
+          <p>It looks like something went wrong with pokeapi.<br> Please try again.</p>
+          <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate a Team</button>
+        </div>
+      </div>
+    </div>
   </div>
 {{else}}
 <div class="jumbotron">

@@ -3,6 +3,26 @@
   margin: auto;
 }
 
+.textcenter{
+  text-align: center;
+}
+
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.1rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
 .center-text{
   text-align: center;
 }
@@ -12,20 +32,27 @@
 }
 
 .poke-profile{
-  background-color: gray;
+  background-color: lightgray;
   border-color: white;
   margin: 2%;
+	-webkit-transform: skew(20deg);
+	-moz-transform: skew(20deg);
+	-o-transform: skew(20deg);
+  vertical-align: middle !important;
 }
 
 .sprite-display{
-  background-color: white;
-  border-radius: 100px;
   margin: 15%;
-  padding: 15%;
+  -webkit-transform: skew(-20deg) !important;
+	-moz-transform: skew(-20deg) !important;
+	-o-transform: skew(-20deg) !important;
 }
 
 .information{
   margin: 10%;
+  -webkit-transform: skew(-20deg) !important;
+	-moz-transform: skew(-20deg) !important;
+	-o-transform: skew(-20deg) !important;
 }
 
 textarea{
@@ -34,4 +61,17 @@ textarea{
 
 .export{
   width: 100% !important;
+}
+
+.exportButton{
+  float: left;
+}
+
+.verticalcenter{
+  vertical-align: middle;
+}
+
+.error{
+  width: 100%;
+  min-height: 100%;
 }
