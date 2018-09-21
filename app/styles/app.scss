@@ -75,3 +75,38 @@ textarea{
   width: 100%;
   min-height: 100%;
 }
+
+.footer{
+  background-color: gray;
+  height: 5vh;
+}
+
+.intro{
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: relative;
+  background-color: none;
+}
+
+.intro:after {
+  content: "";
+  background: url("http://play.pokemonshowdown.com/fx/client-bg-charizards.jpg");
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.title{
+  width: 75%;
+}
+
+#navbar{
+  position: fixed !important;
+  z-index: 2;
+  width: 100%;
+}

@@ -58,7 +58,7 @@ export default Component.extend({
           }
           generatedIDs.push(randPokeID);
           let randNatureID = Math.floor(1 + Math.random() * 24);
-          let currPoke = "https://pokeapi.co/api/v2/pokemon/" + randPokeID;
+          let currPoke = "https://pokeapi.co/api/v2/pokemon/" + randPokeID + "/";
           var self = this;
           let natures = ['hardy', 'bold', 'modest', 'calm', 'timid', 'lonely', 'docile', 'mild', 'gentle', 'hasty', 'adamant', 'impish', 'bashful', 'careful', 'jolly', 'naughty', 'lax', 'rash', 'quirky', 'naive', 'brave', 'relaxed', 'quiet', 'sassy', 'serious'];
           let currNature = natures[randNatureID];
