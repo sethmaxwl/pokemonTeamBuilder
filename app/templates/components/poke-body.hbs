@@ -1,4 +1,3 @@
-{{header-bar}}
 <script type="text/javascript">
 function copy(){
   var val = $("#export").select();
@@ -6,175 +5,184 @@ function copy(){
   document.getSelection().removeAllRanges();
 }
 </script>
+{{header-bar}}
 {{#if hasGenerated}}
-  <div class="center textcenter">
-    <h1>Your Randomly Generated Team is...</h1>
-    <div class="row">
-      <div class="col">
-        <div class="container poke-profile">
-          <div class="row">
-            <div class="col">
-              <div class="sprite-display">
-                <img src={{currentTeam.0.sprite}}>
-              </div>
-            </div>
-            <div class="col">
-              <div class="information">
-                <h1><i>{{currentTeam.0.displayName}}</i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="container poke-profile">
-          <div class="row">
-            <div class="col">
-              <div class="sprite-display">
-                <img src={{currentTeam.1.sprite}}>
-              </div>
-            </div>
-            <div class="col">
-              <div class="information">
-                <h1><i>{{currentTeam.1.displayName}}</i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="container poke-profile">
-          <div class="row">
-            <div class="col">
-              <div class="sprite-display">
-                <img src={{currentTeam.2.sprite}}>
-              </div>
-            </div>
-            <div class="col">
-              <div class="information">
-                <h1><i>{{currentTeam.2.displayName}}</i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="container poke-profile">
-          <div class="row">
-            <div class="col">
-              <div class="sprite-display">
-                <img src={{currentTeam.3.sprite}}>
-              </div>
-            </div>
-            <div class="col">
-              <div class="information">
-                <h1><i>{{currentTeam.3.displayName}}</i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="container poke-profile">
-          <div class="row">
-            <div class="col">
-              <div class="sprite-display">
-                <img src={{currentTeam.4.sprite}}>
-              </div>
-            </div>
-            <div class="col">
-              <div class="information">
-                <h1><i>{{currentTeam.4.displayName}}</i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="container poke-profile">
-          <div class="row">
-            <div class="col">
-              <div class="sprite-display">
-                <img src={{currentTeam.5.sprite}}>
-              </div>
-            </div>
-            <div class="col">
-              <div class="information">
-                <h1><i>{{currentTeam.5.displayName}}</i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 center textcenter">
-        <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate Another Team</button>
-      </div>
-      <div class="col-md-8">
-        <div class="container export center">
-          <h3>Showdown export</h3>
-          <div class="btn btn-outline-primary btn-sm center exportButton" onclick="copy()">Copy exportable</div>
-          <textarea id="export" rows="8" col="300">{{exportable}}</textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-{{else if loading}}
-  <div class="container">
-    {{ember-spinner lines=12 radius=20 length=0 width=10 rotate=0 speed='3.4' color='orange'}}
-  </div>
-{{else if error}}
-  <div class="container error">
-    <div class="center verticalcenter">
+  <div class="poke-body">
+    <div class="center textcenter">
+      <h3>Your Randomly Generated Team is...</h3>
       <div class="row">
         <div class="col">
-          <img src="https://pbs.twimg.com/media/CTz0j7nW4AAEj7Z.jpg">
+          <div class="container poke-profile">
+            <div class="row">
+              <div class="col">
+                <div class="sprite-display">
+                  <img class="sprite" src={{currentTeam.0.sprite}}>
+                </div>
+              </div>
+              <div class="col">
+                <div class="information">
+                  <h3><i>{{currentTeam.0.displayName}}</i></h3>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col">
-          <h1>Oops!</h1>
-          <p>It looks like something went wrong with pokeapi.<br> Please try again.</p>
-          <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate a Team</button>
+          <div class="container poke-profile">
+            <div class="row">
+              <div class="col">
+                <div class="sprite-display">
+                  <img class="sprite" src={{currentTeam.1.sprite}}>
+                </div>
+              </div>
+              <div class="col">
+                <div class="information">
+                  <h3><i>{{currentTeam.1.displayName}}</i></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container poke-profile">
+            <div class="row">
+              <div class="col">
+                <div class="sprite-display">
+                  <img class="sprite" src={{currentTeam.2.sprite}}>
+                </div>
+              </div>
+              <div class="col">
+                <div class="information">
+                  <h3><i>{{currentTeam.2.displayName}}</i></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="container poke-profile">
+            <div class="row">
+              <div class="col">
+                <div class="sprite-display">
+                  <img class="sprite" src={{currentTeam.3.sprite}}>
+                </div>
+              </div>
+              <div class="col">
+                <div class="information">
+                  <h3><i>{{currentTeam.3.displayName}}</i></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container poke-profile">
+            <div class="row">
+              <div class="col">
+                <div class="sprite-display">
+                  <img class="sprite" src={{currentTeam.4.sprite}}>
+                </div>
+              </div>
+              <div class="col">
+                <div class="information">
+                  <h3><i>{{currentTeam.4.displayName}}</i></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="container poke-profile">
+            <div class="row">
+              <div class="col">
+                <div class="sprite-display">
+                  <img class="sprite" src={{currentTeam.5.sprite}}>
+                </div>
+              </div>
+              <div class="col">
+                <div class="information">
+                  <h3><i>{{currentTeam.5.displayName}}</i></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 center textcenter">
+          <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate Another Team</button>
+        </div>
+        <div class="col-md-8">
+          <div class="container export center">
+            <h3>Showdown export</h3>
+            <div class="btn btn-outline-primary btn-sm center exportButton" onclick="copy()">Copy exportable</div>
+            <textarea id="export" rows="8" col="300">{{exportable}}</textarea>
+          </div>
         </div>
       </div>
     </div>
   </div>
-{{else}}
-  <div class="intro">
-    <div class="container intro-content">
-      <div class="text-center">
-        <h1 class="display-2">Welcome to Pokémon Team Generator</h1>
-        <button class="btn btn-primary btn-block" style="margin-top: 10%;"{{action 'generate'}}>Generate a Team</button>
+  {{else if loading}}
+    <div class="poke-body">
+      <div class="container">
+        {{ember-spinner lines=12 radius=20 length=0 width=10 rotate=0 speed='3.4' color='orange'}}
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="text-center">
-      <h4>pokéAPI only allows 300 API calls per day per IP address. Each team generation uses 6 of these calls. If you get to 300 calls, you won't be able to generate any more teams on that day from that device. Please use these sparingly.</h4>
+  {{else if error}}
+    <div class="poke-body">
+      <div class="container error">
+        <div class="center verticalcenter">
+          <div class="row">
+            <div class="col">
+              <img src="https://pbs.twimg.com/media/CTz0j7nW4AAEj7Z.jpg">
+            </div>
+            <div class="col">
+              <h3>Oops!</h3>
+              <p>It looks like something went wrong with pokeapi.<br> Please try again.</p>
+              <button class="btn btn-outline-primary btn-lg" {{action 'generate'}}>Generate a Team</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="pb-2 mt-4 mb-2 border-bottom text-center">
-      <h1>About</h1>
+  {{else}}
+    <div class="poke-body">
+      <div class="intro">
+        <div class="container intro-content">
+          <div class="text-center">
+            <h3 class="display-2">Welcome to Pokémon Team Generator</h3>
+            <button class="btn btn-primary btn-block" style="margin-top: 10%;"{{action 'generate'}}>Generate a Team</button>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="text-center">
+          <h4>pokéAPI only allows 300 API calls per day per IP address. Each team generation uses 6 of these calls. If you get to 300 calls, you won't be able to generate any more teams on that day from that device. Please use these sparingly.</h4>
+        </div>
+        <div class="pb-2 mt-4 mb-2 border-bottom text-center">
+          <h3>About</h3>
+        </div>
+        <div class="text-center">
+          <p>Pokémon Team Generator is a project designed to generate a random team of six pokémon.</p>
+          <p>Each generated pokémon is completely random. They each have randomized abilities, moves, EVs, and natures.</p>
+          <p>This is different from the random teams generated by Pokémon Showdown because the pokémon generated there are typically usable, even if they aren't necessarily good.</p>
+          <p>This is designed to be a completely random pokémon team, which may be frustrating to use, but it's designed to be a fun way to play with friends who also use a team made by Pokémon Team Generator.</p>
+          <p>Each team has a generated pokémon showdown text export that can be copied and pasted into the pokémon showdown teambuilder.</p>
+          <h5>If it ever takes a long time to generate a team, it is usually because of pokéAPI. It's a heavily used public API that is sometimes slow. Also, it can be down at times, so if it is taking forever, it's probably because pokéAPI is down for the time being.</h5>
+        </div>
+        <div class="pb-2 mt-4 mb-2 border-bottom text-center">
+          <h3>Rules</h3>
+        </div>
+        <div class="text-center">
+          <p>There can be a few hiccups with the generator sometimes. Please follow these rules to ensure a fair matchup:</p>
+          <ol type="1">
+            <li>Occasionally more than one of the same pokémon is generated on one team. This goes against the same species clause in pokémon showdown, so if this happens, you should generate a new team.</li>
+            <li>As for items, it is up to each pair of trainers to decide if they want items to be used or not before a team is generated. This makes sure that one player doesn't have an advantage after they know what is on their team (ex. one person gets a pokémon that can mega evolve and decides to allow items, but the other player doesn't have anything that would benefit in the same way). If you decide to allow items, these can be hand picked on the pokémon showdown teambuilder.</li>
+            <li>It would be really easy to just keep generating teams until you get something good, but it really takes away some of the fun that is random pokémon battles. The whole idea is to use a team that isn't traditionally good, so you have to improvise in the battle. It's not as fun if you get something after many generated teams that can easily sweep, so just don't do anything like that. K thanks.</li>
+          </ol>
+        </div>
+      </div>
     </div>
-    <div class="text-center">
-      <p>Pokémon Team Generator is a project designed to generate a random team of six pokémon.</p>
-      <p>Each generated pokémon is completely random. They each have randomized abilities, moves, EVs, and natures.</p>
-      <p>This is different from the random teams generated by Pokémon Showdown because the pokémon generated there are typically usable, even if they aren't necessarily good.</p>
-      <p>This is designed to be a completely random pokémon team, which may be frustrating to use, but it's designed to be a fun way to play with friends who also use a team made by Pokémon Team Generator.</p>
-      <p>Each team has a generated pokémon showdown text export that can be copied and pasted into the pokémon showdown teambuilder.</p>
-      <h5>If it ever takes a long time to generate a team, it is usually because of pokéAPI. It's a heavily used public API that is sometimes slow. Also, it can be down at times, so if it is taking forever, it's probably because pokéAPI is down for the time being.</h5>
-    </div>
-    <div class="pb-2 mt-4 mb-2 border-bottom text-center">
-      <h1>Rules</h1>
-    </div>
-    <div class="text-center">
-      <p>There can be a few hiccups with the generator sometimes. Please follow these rules to ensure a fair matchup:</p>
-      <ol type="1">
-        <li>Occasionally more than one of the same pokémon is generated on one team. This goes against the same species clause in pokémon showdown, so if this happens, you should generate a new team.</li>
-        <li>As for items, it is up to each pair of trainers to decide if they want items to be used or not before a team is generated. This makes sure that one player doesn't have an advantage after they know what is on their team (ex. one person gets a pokémon that can mega evolve and decides to allow items, but the other player doesn't have anything that would benefit in the same way). If you decide to allow items, these can be hand picked on the pokémon showdown teambuilder.</li>
-        <li>It would be really easy to just keep generating teams until you get something good, but it really takes away some of the fun that is random pokémon battles. The whole idea is to use a team that isn't traditionally good, so you have to improvise in the battle. It's not as fun if you get something after many generated teams that can easily sweep, so just don't do anything like that. K thanks.</li>
-      </ol>
-    </div>
-  </div>
 {{/if}}

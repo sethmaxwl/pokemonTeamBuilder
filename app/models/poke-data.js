@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { inject } from '@ember/service';
 
 export default DS.Model.extend({
   pokeID: DS.attr('number'),
@@ -15,5 +16,5 @@ export default DS.Model.extend({
   spaEV: DS.attr('number'),
   spdEV: DS.attr('number'),
   speEV: DS.attr('number'),
-  currentTeam: Ember.inject.service()
+  currentTeam: inject
 });

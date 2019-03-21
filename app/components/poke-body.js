@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import $ from 'jquery';
 import { computed } from '@ember/object';
-import { capitalize } from '@ember/string';
 export default Component.extend({
   currentTeam: computed(function(){
     return [];
@@ -9,7 +8,7 @@ export default Component.extend({
   exportable: '',
   numGenerated: 0,
   shuffle(a){
-    for (var i=a.length-1;i>0;i--){
+    for (var i = (a.length - 1); i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let x = a[i];
         a[i] = a[j];
@@ -28,7 +27,6 @@ export default Component.extend({
       exp += curr[i].nature.capitalize() + " Nature\n- " + curr[i].displayM1 + "\n- " + curr[i].displayM2 + "\n- " + curr[i].displayM3 + "\n- " + curr[i].displayM4 + "\n\n";
     }
     this.set('exportable', exp);
-    console.log(this.currentTeam);
   },
   actions:{
     generate(){
@@ -45,7 +43,7 @@ export default Component.extend({
           let readyToInsert = false;
           while(!readyToInsert){
             let isPresent = false
-            for(var i=0;i<generatedIDs.length;i++){
+            for(var j = 0; j < generatedIDs.length; j++){
               if(randPokeID == generatedIDs[i]){
                 isPresent = true;
               }
@@ -60,12 +58,13 @@ export default Component.extend({
           let randNatureID = Math.floor(1 + Math.random() * 24);
           let currPoke = "https://pokeapi.co/api/v2/pokemon/" + randPokeID + "/";
           var self = this;
-          let natures = ['hardy', 'bold', 'modest', 'calm', 'timid', 'lonely', 'docile', 'mild', 'gentle', 'hasty', 'adamant', 'impish', 'bashful', 'careful', 'jolly', 'naughty', 'lax', 'rash', 'quirky', 'naive', 'brave', 'relaxed', 'quiet', 'sassy', 'serious'];
+          let natures = ['Hardy', 'Bold', 'Modest', 'Calm', 'Timid', 'Lonely', 'Docile', 'Mild', 'Gentle', 'Hasty', 'Adamant', 'Impish', 'Bashful', 'Careful', 'Jolly', 'Naughty', 'Lax', 'Rash', 'Quirky', 'Naive', 'Brave', 'Relaxed', 'Quiet', 'Sassy', 'Serious'];
           let currNature = natures[randNatureID];
-          var self = this;
           $.getJSON(currPoke, function(poke){
             let pokeAbilityID = Math.floor(Math.random() * (poke.abilities.length));
             let pokeAbility = poke.abilities[pokeAbilityID].ability.name;
+            pokeAbility = pokeAbility.replace('-', ' ');
+            pokeAbility = pokeAbility.capitalize();
             let moves = [];
             let pickedMoves = [];
             for(var i=0;i<4;i++){
@@ -73,7 +72,7 @@ export default Component.extend({
               let readyToInsert = false;
               while(!readyToInsert){
                 let isPresent = false
-                for(var i=0;i<pickedMoves.length;i++){
+                for(var k = 0; k < pickedMoves.length; k++){
                   if(randMoveID == pickedMoves[i]){
                     isPresent = true;
                   }
@@ -89,7 +88,7 @@ export default Component.extend({
             }
             let statTotal = 510;
             let evs = [];
-            for(var i=0;i<6;i++){
+            for(var l = 0; l < 6; l++){
               if(statTotal > 252){
                 let ev = Math.floor(Math.random() * 252);
                 evs.push(ev);
@@ -113,21 +112,23 @@ export default Component.extend({
               }
             }
             let showName = poke.name.capitalize();
-            showName.replace('-', ' ');
+            showName = showName.replace('-', ' ');
+            showName = showName.capitalize();
             let showAbility = pokeAbility.capitalize();
-            showAbility.replace('-', ' ');
+            showAbility = showAbility.replace('-', ' ');
+            showAbility = showAbility.capitalize();
             let showM1 = moves[0];
-            showM1.replace('-', ' ');
-            showM1.capitalize();
+            showM1 = showM1.replace('-', ' ');
+            showM1 = showM1.capitalize();
             let showM2 = moves[1];
-            showM2.replace('-', ' ');
-            showM2.capitalize();
+            showM2 = showM2.replace('-', ' ');
+            showM2 = showM2.capitalize();
             let showM3 = moves[2];
-            showM3.replace('-', ' ');
-            showM3.capitalize();
+            showM3 = showM3.replace('-', ' ');
+            showM3 = showM3.capitalize();
             let showM4 = moves[3];
-            showM4.replace('-', ' ');
-            showM4.capitalize();
+            showM4 = showM4.replace('-', ' ');
+            showM4 = showM4.capitalize();
             evs = self.shuffle(evs);
             let currSprite;
             if(randPokeID < 10){
@@ -162,7 +163,7 @@ export default Component.extend({
               speEV: evs[5]
             };
             currGeneratedPoke = record;
-          }).then(function(){
+          }).done(function(){
             self.currentTeam.push(currGeneratedPoke);
             self.numGenerated += 1;
             if(self.numGenerated == 6){

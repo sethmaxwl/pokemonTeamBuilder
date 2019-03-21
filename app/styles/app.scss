@@ -11,6 +11,15 @@ html {
   font-size: 1rem;
 }
 
+.poke-body {
+  padding-top: 50px;
+}
+
+.sprite {
+  width: 120px !important;
+  height: 120px !important;
+}
+
 @include media-breakpoint-up(md) {
   html {
     font-size: 1.1rem;
